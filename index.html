@@ -630,17 +630,19 @@ footer .copy{ color:var(--faint); font-size:12px; letter-spacing:.05em; }
 .ev-card .period{ font-family:var(--f-label); font-size:10px; letter-spacing:.14em; color:var(--faint); margin-bottom:10px; }
 .ev-card h3{ font-family:var(--f-head); font-weight:800; font-size:clamp(19px,2.3vw,24px); margin:0 0 12px; }
 .ev-card p{ margin:0; color:var(--muted); font-size:14px; line-height:1.72; }
-/* 모바일: 이벤트 내용을 전체 폭 띠(배너)처럼 */
+/* 이벤트 내용을 전체 폭 띠(배너)처럼 — 모바일·PC 공통 */
+.ev-grid{ max-width:none; margin-inline:calc(50% - 50vw); gap:0; }
+.ev-card{ --ev-pad:max(var(--gutter), calc((100vw - var(--maxw)) / 2 + var(--gutter)));
+  border-radius:0; border-left:0; border-right:0; background:var(--ink); color:var(--bg);
+  padding:clamp(24px,3.4vw,40px) var(--ev-pad) clamp(26px,3.6vw,44px) calc(var(--ev-pad) + 6px); }
+.ev-card::before{ width:4px; left:max(0px, calc(var(--ev-pad) - var(--gutter))); background:linear-gradient(180deg,#0b0b0c,#6a6a70); }
+.ev-card .tag{ background:var(--bg); color:var(--ink); }
+.ev-card .period{ color:#5a5a60; }
+.ev-card h3{ color:var(--bg); }
+.ev-card p{ color:#3a3a40; max-width:760px; }
 @media (max-width:600px){
   .events{ padding-block:clamp(44px,9vw,72px); }
-  .ev-grid{ max-width:none; margin-inline:calc(-1 * var(--gutter)); gap:0; }
-  .ev-card{ border-radius:0; border-left:0; border-right:0; background:var(--ink); color:var(--bg);
-    padding:24px var(--gutter) 26px calc(var(--gutter) + 6px); }
-  .ev-card::before{ width:4px; background:linear-gradient(180deg,#0b0b0c,#6a6a70); }
-  .ev-card .tag{ background:var(--bg); color:var(--ink); }
-  .ev-card .period{ color:#5a5a60; }
-  .ev-card h3{ color:var(--bg); }
-  .ev-card p{ color:#3a3a40; }
+  .ev-card::before{ left:0; }
 }
 
 /* ── 블로그(시설 안내) 버튼 ── */
